@@ -17,6 +17,8 @@ zypper in fping cpp gcc gcc-c++ libstdc++ glib2-devel flex bison automake autoco
 
 zypper in gawk sed patch diffutils
 
+zypper in rpm-devel rpmrebuild rpmlint nagios-rpm-macros
+
 
 # old sources  resolve many devel depend
 zypper --ignore-unknown si nrpe nsca nagios
