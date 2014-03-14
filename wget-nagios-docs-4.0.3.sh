@@ -2,8 +2,14 @@
 
 VER=4.0.3
 
+if [ -d  /tmp/nagios-docs-$VER }; then
+rm -rf  /tmp/nagios-docs-$VER
+else
 mkdir /tmp/nagios-docs-$VER
+fi
+
 cd /tmp/nagios-docs-$VER
+
 wget --max--max -r -l 2edirect=3  -r -l 2edirect=3 --max -r -l 2edirect=3  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/
 wget --max -r -l 2edirect=3  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/toc.html
 wget --max -r -l 2edirect=3  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/about.html
@@ -65,3 +71,9 @@ wget --max -r -l 2edirect=3  -r -l 2 http://nagios.sourceforge.net/docs/nagiosco
 wget --max -r -l 2edirect=3  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/int-tcpwrappers.html
 wget --max -r -l 2edirect=3  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/addons.html
 wget --max -r -l 2edirect=3  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/pluginapi.html
+
+
+cd /tmp
+ tar cpfz nagios-docs-4.0.3.tar.gz nagios-docs-4.0.3
+cp nagios-docs-4.0.3.tar.gz /usr/src/packages/SOURCES/
+
