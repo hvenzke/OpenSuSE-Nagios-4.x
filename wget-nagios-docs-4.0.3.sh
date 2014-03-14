@@ -74,6 +74,6 @@ wget  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/addons.html
 wget  -r -l 2 http://nagios.sourceforge.net/docs/nagioscore/4/en/pluginapi.html
 
 cd /tmp
- tar cpfz nagios-docs-$VER.tar.gz nagios-docs-VER
+ tar cpfz nagios-docs-$VER-$D.tar.gz nagios-docs-VER
 cp nagios-docs-$VER-$D.tar.gz /usr/src/packages/SOURCES/
 
