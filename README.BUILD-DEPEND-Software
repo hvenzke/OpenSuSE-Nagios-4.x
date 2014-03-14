@@ -1,4 +1,4 @@
- HINTs from  http://56281688.blog.51cto.com/780901/1362447
+ HINTs adapted from from  http://56281688.blog.51cto.com/780901/1362447
 
 # zypper  install gd fontconfig-devel libjpeg-devel libpng-devel gd-devel perl-GD
 
