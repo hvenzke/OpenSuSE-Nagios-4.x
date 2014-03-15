@@ -1,53 +1,50 @@
---- REQUIREMENTS.orig   2014-03-04 19:21:36.000000000 +0000
-+++ REQUIREMENTS        2014-03-14 11:28:56.710839985 +0000
-@@ -50,14 +50,21 @@
+--- REQUIREMENTS.orig   2014-03-15 14:38:32.373531930 +0000
++++ REQUIREMENTS        2014-03-15 14:43:28.425826225 +0000
+@@ -50,14 +50,18 @@
           http://libdbi.sourceforge.net/
 
  check_radius:
 -       - Requires the radiusclient-ng library available from:
 -         http://developer.berlios.de/projects/radiusclient-ng/
 +        - Requires the freeradius-client library available from:
-+          http://freeradius.org/freeradius-client/
-+
++         http://freeradius.org/freeradius-client/
 +       - This plugin also works with the radiusclient-ng library available
-+          from: http://developer.berlios.de/projects/radiusclient-ng/
-+          Unfortunately this software package is unmaintained since many years.
-+
++         from: http://developer.berlios.de/projects/radiusclient-ng/
++         Unfortunately this software package is unmaintained since many years.
         - This plugin also works with the original radiusclient library from
           ftp://ftp.cityline.net/pub/radiusclient/
                 RPM (rpmfind): radiusclient 0.3.2, radiusclient-devel-0.3.2
           Unless you're using a distro-maintained version of this library you
 -         probably want to use radiusclient-ng. The original radiusclient library is
 -         unmaintained and has many known issues, particularly with 64bit systems.
-+          probably want to use freeradius-client. The original radiusclient
-+          library is unmaintained and has many known issues, particularly with
-+          64bit systems.
-+
++         probably want to use freeradius-client. The original radiusclient
++         library is unmaintained and has many known issues, particularly with
++         64bit systems.
 
  check_snmp:
         - Requires the NET-SNMP package available from
---- configure.ac.orig   2014-03-04 19:21:36.000000000 +0000
-+++ configure.ac        2014-03-14 11:34:18.512333731 +0000
+--- configure.ac.orig   2014-03-15 14:38:32.423530629 +0000
++++ configure.ac        2014-03-15 14:50:18.315141985 +0000
 @@ -289,8 +289,15 @@
           RADIUSLIBS="-lradiusclient-ng"
        AC_SUBST(RADIUSLIBS)
      else
 -      AC_MSG_WARN([Skipping radius plugin])
 -      AC_MSG_WARN([install radius libs to compile this plugin (see REQUIREMENTS).])
-+      AC_CHECK_LIB(freeradius-client,rc_read_config)
-+      if test "$ac_cv_lib_freeradius_client_rc_read_config" = "yes"; then
-+        EXTRAS="$EXTRAS check_radius"
-+            RADIUSLIBS="-lfreeradius-client"
-+        AC_SUBST(RADIUSLIBS)
-+      else
-+        AC_MSG_WARN([Skipping radius plugin])
-+        AC_MSG_WARN([install radius libs to compile this plugin (see REQUIREMENTS).])
-+      fi
++       AC_CHECK_LIB(freeradius-client,rc_read_config)
++       if test "$ac_cv_lib_freeradius_client_rc_read_config" = "yes"; then
++               EXTRAS="$EXTRAS check_radius"
++               RADIUSLIBS="-lfreeradius-client"
++               AC_SUBST(RADIUSLIBS)
++       else
++               AC_MSG_WARN([Skipping radius plugin])
++               AC_MSG_WARN([install radius libs to compile this plugin (see REQUIREMENTS).])
++       fi
      fi
    fi
    LIBS="$_SAVEDLIBS"
 --- plugins/check_radius.c.orig 2014-03-14 11:14:13.954196455 +0000
-+++ plugins/check_radius.c      2014-03-14 11:47:22.481635737 +0000
++++ plugins/check_radius.c 2014-03-14 11:47:22.481635737 +0000
 @@ -39,6 +39,9 @@
  #ifdef HAVE_LIBRADIUSCLIENT_NG
  #include <radiusclient-ng.h>
@@ -98,10 +95,10 @@
 + {
 +
 +#ifdef HAVE_LIBRADIUSCLIENT
-+       return rc_read_config(a);
++ return rc_read_config(a);
 +#else
-+        rch = rc_read_config(a);
-+        return (rch == NULL) ? 1 : 0;
++ rch = rc_read_config(a);
++ return (rch == NULL) ? 1 : 0;
 +#endif
 +}
 +
