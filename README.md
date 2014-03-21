@@ -13,7 +13,7 @@ nagios-plugins-2.0  rpm structure keept same way as the opensuSE nagios-plugins-
 this makes it simple to update existing opensuse / SuSE nagios-plugin pkg.
 
 
-Our Nagios 4.x Build include the legacy contrib plugins , image logo packs  
+Our Nagios 4.x with nagios-plugins-2.x  Build include the legacy contrib plugins , image logo packs  
 
 Our build based mostly on http://download.opensuse.org/repositories/server:/monitoring  SRPMS to keep
 i.e dependecies simple.
@@ -25,6 +25,7 @@ BUG reports please via mail to support@remsnet.de  or raise an Issuie.
 Changelog - 21.03.2014 - Horst.venzke@remsnet.de
 
 - nagios 4.0.3 spec               : completed
+- nagios-plugins-2.0-rel-1.3      : completed
 - pnp4nagios-0.6.21-10.2.specc    : completed
 - nagvis 1.8b3 spec               : completed
 - check_mk-1.2.4 spec             : completed
