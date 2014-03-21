@@ -19,22 +19,14 @@ zypper in gawk sed patch diffutils
 
 zypper in rpm-devel rpmrebuild rpmlint nagios-rpm-macros
 
+mkdir -p /var/tmp/OpenSuSE-Nagios-4.x/SOURCES
+cp get_oss13.1-nagios-srpm.sh /var/tmp/OpenSuSE-Nagios-4.x
+cd  /var/tmp/OpenSuSE-Nagios-4.x/SOUCRES
 
-# old sources  resolve many devel depend
-zypper --ignore-unknown si nrpe nsca nagios
+  sh get_oss13.1-nagios-srpm.sh 
 
- # zypper  si nagios-plugins
-Reading installed packages...
-Loading repository data...
-Resolving package dependencies...
+rpm -i ...src.rpm 
 
-Problem: nagios-plugins-1.4.16-9.1.3.src requires syslog-ng, but this requirement cannot be provided
-  uninstallable providers: syslog-ng-3.4.3-2.1.1.armv6hl[oss131]
- Solution 1: deinstallation of rsyslog-7.4.4-2.1.1.armv6hl
- Solution 2: do not ask to install a solvable providing nagios-plugins.src = 1.4.16-9.1.3
- Solution 3: break nagios-plugins-1.4.16-9.1.3.src by ignoring some of its dependencies
-
-Choose from above solutions by number or cancel [1/2/3/c] (c): 3
 
 
 pear channel-update pear.php.net
