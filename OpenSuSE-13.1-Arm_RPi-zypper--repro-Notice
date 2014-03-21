@@ -1,0 +1,44 @@
+
+
+nagios1:/etc/zypp/repos.d # ls
+13.1-Contrib-RPi.repo  openSUSE-13.1-repo-oss.repo     server_monitoring.repo
+Src-Non-OSS.repo       openSUSE-13.1-repo-update.repo
+
+
+nagios1:/etc/zypp/repos.d # cat 13.1-Contrib-RPi.repo
+[13.1-Contrib-RPi]
+name=13.1-Contrib-RPi
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/repositories/devel:/ARM:/13.1:/Contrib:/RaspberryPi/standard/
+type=rpm-md
+nagios1:/etc/zypp/repos.d # cat Src-Non-OSS.repo
+[Src-Non-OSS131]
+name=Src-Non-OSS131
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/source/distribution/13.1/repo/non-oss/
+type=yast2
+nagios1:/etc/zypp/repos.d # cat openSUSE-13.1-repo-oss.repo
+[openSUSE-13.1-repo-oss]
+name=openSUSE-13.1-repo-oss
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/ports/armv6hl/distribution/13.1/repo/oss/
+type=yast2
+nagios1:/etc/zypp/repos.d # cat openSUSE-13.1-repo-update.repo
+[openSUSE-13.1-repo-update]
+name=openSUSE-13.1-repo-update
+enabled=1
+autorefresh=1
+baseurl=http://download.opensuse.org/ports/update/13.1/
+type=rpm-md
+nagios1:/etc/zypp/repos.d # cat server_monitoring.repo
+[server_monitoring]
+name=Server Monitoring Software (openSUSE_13.1)
+type=rpm-md
+baseurl=http://download.opensuse.org/repositories/server:/monitoring/openSUSE_13.1/
+gpgcheck=1
+gpgkey=http://download.opensuse.org/repositories/server:/monitoring/openSUSE_13.1/repodata/repomd.xml.key
+enabled=1
+nagios1:/etc/zypp/repos.d #
