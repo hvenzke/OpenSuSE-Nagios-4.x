@@ -22,7 +22,7 @@ i.e dependecies simple.
 BUG reports please via mail to support@remsnet.de  or raise an Issuie.
 
 
-Changelog - 21.03.2014 - Horst.venzke@remsnet.de
+Changelog - 21.03.2014 - Horst dot venzke at remsnet dot de
 
 - nagios 4.0.3 spec               : completed
 - nagios-plugins-2.0-rel-1.3      : completed
@@ -40,7 +40,7 @@ depend software builds extras
 - apache2-mod_python-3.3.1-161.3.1.spec : complted for oss 13.1 arm
 
 
-Work In progress  - 21.03.2014 - Horst.venzke@remsnet.de
+Work In progress  - 21.03.2014 - 
 - nagios 4.0.4- spec
 - check_mk-1.2.4b7 - spec
 - pear xml_parser as srpm
