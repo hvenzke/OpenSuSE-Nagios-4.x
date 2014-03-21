@@ -1,0 +1,9 @@
+
+ known Bugs  - 21.03.2014
+ ----------
+ 
+ 
+ - nagios plugins 2.x check_raduis dont build ( nagios-plugins-2.0-rel-1.3.spec )
+ - check_mk-1.2.4b7 not complatible yet with nagios4 
+ 
+ 
